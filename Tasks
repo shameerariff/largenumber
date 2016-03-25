@@ -12,6 +12,11 @@ Task Completed and pending list
 	      1Array to Array
 	      2Array to Number
 	      3Number to Array
+      5Array  
+	    1Logical operation Array
+	    2Array to Array
+	    3Array to Number
+	    4Number to Array
 
 
 
@@ -22,8 +27,3 @@ Pending List
     3Implementing Logical operations like greater or lesser or equal etc
     4Connecting to various databases.
     5Converting the program as header file and external functions and libraries.
-    6Array  
-      1Logical operation Array
-	    2Array to Array
-	    3Array to Number
-	    4Number to Array
