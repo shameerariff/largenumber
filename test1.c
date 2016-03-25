@@ -433,6 +433,194 @@ int Logical_opp(char variable1[],char variable2[])
 		return 0x00;
 }
 
+//Logical Arrays to number
+int Logical_opp_Arrays_Numbers(char variable1[],int id,char variable2[])
+{
+	int i,vid1=-1,vid2=-1;
+	for(i=0;i<MAXARRAYVARIABLE;i++)
+		if(strcmp(variable1,anum[i].name)==0)
+			vid1=i;
+	if(vid1==-1)
+	{
+		return 0x00;
+	}
+	for(i=0;i<MAXVARIABLE;i++)
+		if((strcmp(variable2,num[i].name))==0)
+			vid2=i;
+	if(vid2!=-1)
+	{
+		if(anum[vid1].sign!=num[vid2].sign)
+		{
+			if(anum[vid1].sign==0)
+				return 1;
+			else
+				return 0;
+		}
+		else
+		{
+			int ga=0,gb=0,eab=0;
+			for(i=0;i<=1024;i++)
+			{
+				if((anum[vid1].inte[id][i]!=0x00)||(num[vid2].inte[i]!=0x00))
+				{
+					printf("\n%lld,%lld",anum[vid1].inte[id][i],num[vid2].inte[i]);
+					if(anum[vid1].inte[id][i]>num[vid2].inte[i])
+						ga++;
+					else if(anum[vid1].inte[id][i]==num[vid2].inte[i])
+						eab++;
+					else
+						gb++;
+				}
+			}
+			printf("\nga=%d, gb=%d ,eab=%d\n",ga,gb,eab);
+			if((ga>gb)&&(ga>eab))
+			{
+				if(anum[vid1].sign==1)
+					return -1;
+				else
+					return 1;
+			}
+			else if((gb>ga)&&(gb>eab))
+			{
+				if(num[vid2].sign==1)
+					return 1;
+				else
+					return -1;
+			}
+			else
+				return 0;
+		}
+	}
+	else
+		return 0x00;
+}
+
+//Logical operation Numbers to Arrays
+int Logical_opp_Numbers_Arrays(char variable1[],char variable2[],int id)
+{
+	int i,vid1=-1,vid2=-1;
+	for(i=0;i<MAXVARIABLE;i++)
+		if(strcmp(variable1,num[i].name)==0)
+			vid1=i;
+	if(vid1==-1)
+	{
+		return 0x00;
+	}
+	for(i=0;i<MAXARRAYVARIABLE;i++)
+		if((strcmp(variable2,anum[i].name))==0)
+			vid2=i;
+	if(vid2!=-1)
+	{
+		if(num[vid1].sign!=anum[vid2].sign)
+		{
+			if(num[vid1].sign==0)
+				return 1;
+			else
+				return 0;
+		}
+		else
+		{
+			int ga=0,gb=0,eab=0;
+			for(i=0;i<=1024;i++)
+			{
+				if((num[vid1].inte[i]!=0x00)||(anum[vid2].inte[id][i]!=0x00))
+				{
+					printf("\n%lld,%lld",num[vid1].inte[i],anum[vid2].inte[id][i]);
+					if(num[vid1].inte[i]>anum[vid2].inte[id][i])
+						ga++;
+					else if(num[vid1].inte[i]==anum[vid2].inte[id][i])
+						eab++;
+					else
+						gb++;
+				}
+			}
+			printf("\nga=%d, gb=%d ,eab=%d\n",ga,gb,eab);
+			if((ga>gb)&&(ga>eab))
+			{
+				if(num[vid1].sign==1)
+					return -1;
+				else
+					return 1;
+			}
+			else if((gb>ga)&&(gb>eab))
+			{
+				if(anum[vid2].sign==1)
+					return 1;
+				else
+					return -1;
+			}
+			else
+				return 0;
+		}
+	}
+	else
+		return 0x00;
+}
+
+
+//Logical Arrays
+int Logical_opp_Arrays(char variable1[],int id1,char variable2[],int id2)
+{
+	int i,vid1=-1,vid2=-1;
+	for(i=0;i<MAXARRAYVARIABLE;i++)
+		if(strcmp(variable1,anum[i].name)==0)
+			vid1=i;
+	if(vid1==-1)
+	{
+		return 0x00;
+	}
+	for(i=0;i<MAXARRAYVARIABLE;i++)
+		if((strcmp(variable2,anum[i].name))==0)
+			vid2=i;
+	if(vid2!=-1)
+	{
+		if(anum[vid1].sign!=anum[vid2].sign)
+		{
+			if(num[vid1].sign==0)
+				return 1;
+			else
+				return 0;
+		}
+		else
+		{
+			int ga=0,gb=0,eab=0;
+			for(i=0;i<=1024;i++)
+			{
+				if((anum[vid1].inte[id1][i]!=0x00)||(anum[vid2].inte[id2][i]!=0x00))
+				{
+					printf("\n%lld,%lld",anum[vid1].inte[id1][i],anum[vid2].inte[id2][i]);
+					if(anum[vid1].inte[id1][i]>anum[vid2].inte[id2][i])
+						ga++;
+					else if(anum[vid1].inte[id1][i]==anum[vid2].inte[id2][i])
+						eab++;
+					else
+						gb++;
+				}
+			}
+			printf("\nga=%d, gb=%d ,eab=%d\n",ga,gb,eab);
+			if((ga>gb)&&(ga>eab))
+			{
+				if(anum[vid1].sign==1)
+					return -1;
+				else
+					return 1;
+			}
+			else if((gb>ga)&&(gb>eab))
+			{
+				if(anum[vid2].sign==1)
+					return 1;
+				else
+					return -1;
+			}
+			else
+				return 0;
+		}
+	}
+	else
+		return 0x00;
+}
+
+
 //Main Function
 int main()
 {
