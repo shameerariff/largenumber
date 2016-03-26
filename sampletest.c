@@ -1,34 +1,32 @@
 //This code can be compiled using gcc compiler and the command is 
 // gcc sampletest.c largeinteger.c -o sampletest
+make: *** No targets specified and no makefile found.  Stop.
 #include <stdio.h>
 #include "largeinteger.h"
 
 //User Program Example
 int main()
 {
-	//Get input from the User
-	printf("Insert a large number");
-	Scan_Number("a");
-	printf("Insert another large number");
+	Scan_Array("a",1);
 	Scan_Number("b");
 	printf("\n A is ");
-	Print_Number("a");
+	Print_Array("a",1);
 	printf("\n B is ");
 	Print_Number("b");
-	Copy_Number("c","a");
-	Copy_Number("a","b");
+	Copy_toNumber("c","a",1);
+	Copy_toArray("a",1,"b");
 	Copy_Number("b","c");
-	printf("The value of A and B are swapped\n A is ");
-	Print_Number("a");
+	printf("\n A is ");
+	Print_Array("a",1);
 	printf("\n B is ");
 	Print_Number("b");
-	int logical=Logical_opp("a","b");
+	int logical=Logical_opp_Array_Number("a",1,"b");
 	if(logical == 1)
-		puts("A is greater");
+		puts("\nA is greater");
 	else if (logical == -1)
-		puts("B is greater");
+		puts("\nB is greater");
 	else if(logical == 0)
-		puts("A and B are equal");
+		puts("\nA and B are equal");
 	else
 		puts("Invalid");
 	printf("\n");
