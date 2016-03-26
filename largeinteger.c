@@ -405,14 +405,14 @@ int Logical_opp(char variable1[],char variable2[])
 						gb++;
 				}
 			}
-			if((ga>gb)&&(ga>eab))
+			if(ga>gb)
 			{
 				if(num[vid1].sign==1)
 					return -1;
 				else
 					return 1;
 			}
-			else if((gb>ga)&&(gb>eab))
+			else if(gb>ga)
 			{
 				if(num[vid2].sign==1)
 					return 1;
@@ -465,14 +465,14 @@ int Logical_opp_Arrays_Numbers(char variable1[],int id,char variable2[])
 						gb++;
 				}
 			}
-			if((ga>gb)&&(ga>eab))
+			if(ga>gb)
 			{
 				if(anum[vid1].sign==1)
 					return -1;
 				else
 					return 1;
 			}
-			else if((gb>ga)&&(gb>eab))
+			else if(gb>ga)
 			{
 				if(num[vid2].sign==1)
 					return 1;
@@ -525,14 +525,14 @@ int Logical_opp_Numbers_Arrays(char variable1[],char variable2[],int id)
 						gb++;
 				}
 			}
-			if((ga>gb)&&(ga>eab))
+			if(ga>gb)
 			{
 				if(num[vid1].sign==1)
 					return -1;
 				else
 					return 1;
 			}
-			else if((gb>ga)&&(gb>eab))
+			else if(gb>ga)
 			{
 				if(anum[vid2].sign==1)
 					return 1;
@@ -586,14 +586,14 @@ int Logical_opp_Arrays(char variable1[],int id1,char variable2[],int id2)
 						gb++;
 				}
 			}
-			if((ga>gb)&&(ga>eab))
+			if(ga>gb)
 			{
 				if(anum[vid1].sign==1)
 					return -1;
 				else
 					return 1;
 			}
-			else if((gb>ga)&&(gb>eab))
+			else if(gb>ga)
 			{
 				if(anum[vid2].sign==1)
 					return 1;
